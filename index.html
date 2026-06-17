@@ -1,20 +1,423 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Camilla Wu</title>
-    <link rel="stylesheet" href="./css/main.css">
+    <meta name="description" content="吳思竺 Camilla Wu — 產品經理 Product Manager。4 年以上金融科技與股市應用產品管理經驗。">
+    <title>吳思竺 Camilla Wu — Product Manager</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #14181f;
+            --ink-soft: #3a414d;
+            --muted: #6b7280;
+            --line: #e7e9ee;
+            --bg: #ffffff;
+            --bg-alt: #f7f8fa;
+            --accent: #2563d6;
+            --accent-soft: #eaf1fd;
+            --radius: 16px;
+            --maxw: 940px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: "Noto Sans TC", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            color: var(--ink);
+            background: var(--bg);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+        a { color: inherit; text-decoration: none; }
+        ::selection { background: var(--accent-soft); }
+
+        /* ---------- NAV ---------- */
+        nav {
+            position: sticky; top: 0; z-index: 50;
+            background: rgba(255,255,255,0.82);
+            backdrop-filter: saturate(180%) blur(12px);
+            border-bottom: 1px solid var(--line);
+        }
+        .nav-inner {
+            max-width: var(--maxw); margin: 0 auto;
+            padding: 16px 24px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo { font-weight: 800; font-size: 1.05rem; letter-spacing: .2px; }
+        .logo span { color: var(--accent); }
+        .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+        .nav-links a { font-size: .92rem; font-weight: 500; color: var(--ink-soft); transition: color .2s; }
+        .nav-links a:hover { color: var(--accent); }
+        .lang-toggle {
+            border: 1px solid var(--line); background: var(--bg);
+            border-radius: 999px; padding: 6px 14px; cursor: pointer;
+            font-family: inherit; font-size: .82rem; font-weight: 600; color: var(--ink-soft);
+            transition: all .2s;
+        }
+        .lang-toggle:hover { border-color: var(--accent); color: var(--accent); }
+        .nav-toggle { display: none; background: none; border: none; cursor: pointer; font-size: 1.4rem; color: var(--ink); }
+
+        /* ---------- LAYOUT ---------- */
+        section { max-width: var(--maxw); margin: 0 auto; padding: 72px 24px; }
+        .eyebrow {
+            text-transform: uppercase; letter-spacing: 2.5px; font-size: .72rem;
+            font-weight: 700; color: var(--accent); margin-bottom: 14px;
+        }
+        h2.section-title { font-size: 1.7rem; font-weight: 800; margin-bottom: 36px; letter-spacing: -.3px; }
+
+        /* ---------- HERO ---------- */
+        .hero { padding-top: 90px; padding-bottom: 64px; }
+        .hero .kicker { color: var(--accent); font-weight: 700; font-size: .95rem; letter-spacing: .5px; margin-bottom: 18px; }
+        .hero h1 { font-size: clamp(2.4rem, 6vw, 3.6rem); line-height: 1.12; font-weight: 900; letter-spacing: -1px; margin-bottom: 10px; }
+        .hero h1 .en { display: block; font-family: "Inter", sans-serif; color: var(--muted); font-weight: 700; font-size: clamp(1.1rem, 2.6vw, 1.5rem); letter-spacing: 0; margin-top: 8px; }
+        .hero .role { font-size: 1.15rem; font-weight: 600; color: var(--ink-soft); margin-bottom: 22px; }
+        .hero .summary { max-width: 660px; color: var(--ink-soft); font-size: 1.05rem; }
+        .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
+        .btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 12px 24px; border-radius: 999px; font-weight: 600; font-size: .95rem;
+            transition: all .2s; cursor: pointer; border: 1px solid transparent;
+        }
+        .btn-primary { background: var(--accent); color: #fff; }
+        .btn-primary:hover { background: #1d4fb0; transform: translateY(-1px); }
+        .btn-ghost { border-color: var(--line); color: var(--ink); }
+        .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+        /* ---------- ABOUT / HIGHLIGHTS ---------- */
+        .alt-bg { background: var(--bg-alt); max-width: 100%; }
+        .alt-bg > .inner { max-width: var(--maxw); margin: 0 auto; padding: 72px 24px; }
+        .highlights { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .stat { background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; }
+        .stat .num { font-size: 2.1rem; font-weight: 900; color: var(--accent); font-family: "Inter", sans-serif; }
+        .stat .label { font-size: .95rem; color: var(--ink-soft); margin-top: 6px; }
+
+        /* ---------- EXPERIENCE TIMELINE ---------- */
+        .timeline { position: relative; }
+        .job { position: relative; padding: 0 0 38px 30px; border-left: 2px solid var(--line); }
+        .job:last-child { padding-bottom: 0; }
+        .job::before {
+            content: ""; position: absolute; left: -7px; top: 4px;
+            width: 12px; height: 12px; border-radius: 50%; background: var(--accent);
+            box-shadow: 0 0 0 4px var(--accent-soft);
+        }
+        .job .when { font-size: .82rem; font-weight: 600; color: var(--accent); font-family: "Inter", sans-serif; letter-spacing: .3px; }
+        .job h3 { font-size: 1.2rem; font-weight: 700; margin: 4px 0 2px; }
+        .job .co { color: var(--ink-soft); font-weight: 500; margin-bottom: 12px; }
+        .job ul { list-style: none; }
+        .job li { position: relative; padding-left: 20px; margin-bottom: 8px; color: var(--ink-soft); }
+        .job li::before { content: ""; position: absolute; left: 2px; top: 12px; width: 6px; height: 6px; border-radius: 50%; background: var(--line); }
+
+        /* ---------- PROJECTS ---------- */
+        .projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .card {
+            border: 1px solid var(--line); border-radius: var(--radius); padding: 26px;
+            background: var(--bg); transition: all .25s;
+        }
+        .card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 12px 30px -16px rgba(37,99,214,.35); }
+        .card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 4px; }
+        .card .tag { display: inline-block; font-size: .72rem; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; color: var(--accent); background: var(--accent-soft); padding: 3px 10px; border-radius: 999px; margin-bottom: 12px; }
+        .card ul { list-style: none; }
+        .card li { position: relative; padding-left: 18px; margin-bottom: 7px; font-size: .95rem; color: var(--ink-soft); }
+        .card li::before { content: "→"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+
+        /* ---------- SKILLS ---------- */
+        .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+        .skill-group h3 { font-size: 1rem; font-weight: 700; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+        .chips { display: flex; flex-wrap: wrap; gap: 9px; }
+        .chip { border: 1px solid var(--line); border-radius: 999px; padding: 7px 15px; font-size: .88rem; color: var(--ink-soft); background: var(--bg); transition: all .2s; }
+        .chip:hover { border-color: var(--accent); color: var(--accent); }
+
+        /* ---------- EDUCATION ---------- */
+        .edu { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .edu-item { border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; }
+        .edu-item .when { font-size: .82rem; font-weight: 600; color: var(--accent); font-family: "Inter", sans-serif; }
+        .edu-item h3 { font-size: 1.08rem; font-weight: 700; margin: 6px 0 3px; }
+        .edu-item p { color: var(--ink-soft); font-size: .95rem; }
+
+        /* ---------- CONTACT ---------- */
+        .contact { text-align: center; }
+        .contact h2 { font-size: 2rem; font-weight: 900; letter-spacing: -.5px; margin-bottom: 14px; }
+        .contact p { color: var(--ink-soft); max-width: 520px; margin: 0 auto 28px; }
+
+        /* ---------- FOOTER ---------- */
+        footer { border-top: 1px solid var(--line); }
+        .footer-inner { max-width: var(--maxw); margin: 0 auto; padding: 28px 24px; display: flex; justify-content: space-between; align-items: center; color: var(--muted); font-size: .85rem; flex-wrap: wrap; gap: 10px; }
+
+        /* ---------- LANG ---------- */
+        [data-en] .zh { display: none; }
+        [data-en] .en-only { display: revert; }
+        .en-only { display: none; }
+
+        /* ---------- REVEAL ---------- */
+        .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
+        .reveal.in { opacity: 1; transform: none; }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 760px) {
+            .nav-links { position: fixed; inset: 60px 0 auto 0; flex-direction: column; background: var(--bg); border-bottom: 1px solid var(--line); padding: 20px 24px; gap: 18px; display: none; }
+            .nav-links.open { display: flex; }
+            .nav-toggle { display: block; }
+            .highlights, .projects, .skills-grid, .edu { grid-template-columns: 1fr; }
+            section, .alt-bg > .inner { padding: 56px 22px; }
+        }
+    </style>
 </head>
 <body>
     <nav>
-        <h1 class="logo"><a href="javascript: void(0)">Camilla Wu</a></h1>
-        <ul class="nav">
-            <li><a href="javascript: void(0)">About</a></li>
-            <li><a href="javascript: void(0)">Work</a></li>
-            <li><a href="javascript: void(0)">Contact</a></li>
-        </ul>
+        <div class="nav-inner">
+            <a href="#top" class="logo">吳思竺 <span>Camilla Wu</span></a>
+            <button class="nav-toggle" aria-label="Menu" id="navToggle">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about"><span class="zh">關於</span><span class="en-only">About</span></a></li>
+                <li><a href="#experience"><span class="zh">經歷</span><span class="en-only">Experience</span></a></li>
+                <li><a href="#projects"><span class="zh">專案</span><span class="en-only">Projects</span></a></li>
+                <li><a href="#skills"><span class="zh">技能</span><span class="en-only">Skills</span></a></li>
+                <li><a href="#contact"><span class="zh">聯絡</span><span class="en-only">Contact</span></a></li>
+                <li><button class="lang-toggle" id="langToggle">EN</button></li>
+            </ul>
+        </div>
     </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="top">
+        <p class="kicker reveal"><span class="zh">產品經理 · 專案經理</span><span class="en-only">Product Manager · Project Manager</span></p>
+        <h1 class="reveal">
+            <span class="zh">吳思竺</span><span class="en-only">Camilla Wu</span>
+            <span class="en zh">Camilla Wu</span>
+        </h1>
+        <p class="role reveal"><span class="zh">打造以使用者為核心的金融科技產品</span><span class="en-only">Building user-centred fintech products</span></p>
+        <p class="summary reveal">
+            <span class="zh">4 年以上產品管理經驗，專注金融科技與股市應用。擅長需求分析、UI/UX 規劃與跨部門協作；具備前端開發背景，能在技術與商業之間有效溝通，推動產品從概念落地。於三竹資訊主導股市 App 多項功能從 0 到 1 的開發與優化，持續提升使用者體驗與內部營運效率。</span>
+            <span class="en-only">Product manager with 4+ years of experience across fintech and stock-market applications. I specialise in requirement analysis, UI/UX planning, and cross-functional collaboration. With a front-end engineering background, I bridge technical and business needs to ship products from concept to launch — leading the 0-to-1 development and optimisation of multiple features for a stock-trading app at Mitake Information.</span>
+        </p>
+        <div class="hero-actions reveal">
+            <a href="#contact" class="btn btn-primary"><span class="zh">聯絡我</span><span class="en-only">Get in touch</span></a>
+            <a href="#experience" class="btn btn-ghost"><span class="zh">查看經歷 ↓</span><span class="en-only">View experience ↓</span></a>
+        </div>
+    </section>
+
+    <!-- HIGHLIGHTS -->
+    <div class="alt-bg" id="about">
+        <div class="inner">
+            <p class="eyebrow reveal"><span class="zh">關於</span><span class="en-only">About</span></p>
+            <h2 class="section-title reveal"><span class="zh">核心優勢</span><span class="en-only">At a glance</span></h2>
+            <div class="highlights">
+                <div class="stat reveal">
+                    <div class="num">4+</div>
+                    <div class="label"><span class="zh">年產品管理經驗</span><span class="en-only">years in product management</span></div>
+                </div>
+                <div class="stat reveal">
+                    <div class="num">0→1</div>
+                    <div class="label"><span class="zh">主導股市 App 功能從無到有</span><span class="en-only">led features from scratch to launch</span></div>
+                </div>
+                <div class="stat reveal">
+                    <div class="num">FinTech</div>
+                    <div class="label"><span class="zh">金融科技與股市應用領域</span><span class="en-only">fintech & stock-market domain</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+        <p class="eyebrow reveal"><span class="zh">職涯經歷</span><span class="en-only">Experience</span></p>
+        <h2 class="section-title reveal"><span class="zh">工作經歷</span><span class="en-only">Where I've worked</span></h2>
+        <div class="timeline">
+            <div class="job reveal">
+                <div class="when">Jul 2020 – <span class="zh">至今</span><span class="en-only">Present</span></div>
+                <h3><span class="zh">產品經理</span><span class="en-only">Product Manager</span></h3>
+                <div class="co"><span class="zh">三竹資訊 Mitake Information</span><span class="en-only">Mitake Information</span></div>
+                <ul>
+                    <li><span class="zh">主導三竹股市 App 功能從 0 到 1 的開發：洞察市場需求、規劃產品路線圖。</span><span class="en-only">Led 0-to-1 development of features for the Mitake stock app — surfacing market needs and owning the product roadmap.</span></li>
+                    <li><span class="zh">整合用戶反饋、商業邏輯與技術可行性，確保產品如期落地。</span><span class="en-only">Balanced user feedback, business logic, and technical feasibility to ship on schedule.</span></li>
+                    <li><span class="zh">優化 UI/UX 流程，降低客訴與操作門檻。</span><span class="en-only">Refined UI/UX flows, reducing support tickets and friction for users.</span></li>
+                    <li><span class="zh">持續進行競品分析與市場研究，提出產品優化方向。</span><span class="en-only">Ran ongoing competitive analysis and market research to drive product improvements.</span></li>
+                </ul>
+            </div>
+            <div class="job reveal">
+                <div class="when">Apr 2019 – Dec 2019</div>
+                <h3><span class="zh">前端工程師</span><span class="en-only">Front-End Engineer</span></h3>
+                <div class="co">citiesocial</div>
+                <ul>
+                    <li><span class="zh">維護 Shopify 電商平台、優化前端效能，並開發新功能與行銷活動頁面。</span><span class="en-only">Maintained a Shopify e-commerce platform, optimised front-end performance, and built new features and campaign pages.</span></li>
+                </ul>
+            </div>
+            <div class="job reveal">
+                <div class="when">Apr 2018 – Sep 2018</div>
+                <h3><span class="zh">前端工程師</span><span class="en-only">Front-End Engineer</span></h3>
+                <div class="co"><span class="zh">愛點科技</span><span class="en-only">iDott</span></div>
+                <ul>
+                    <li><span class="zh">獨立規劃 UI/UX，建置資料庫與網站，負責政府專案的 SEO 優化、上線與維護。</span><span class="en-only">Independently designed UI/UX, built the database and website, and handled SEO, launch, and maintenance for a government project.</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <div class="alt-bg" id="projects">
+        <div class="inner">
+            <p class="eyebrow reveal"><span class="zh">代表專案</span><span class="en-only">Selected work</span></p>
+            <h2 class="section-title reveal"><span class="zh">代表性專案</span><span class="en-only">Featured projects</span></h2>
+            <div class="projects">
+                <div class="card reveal">
+                    <span class="tag"><span class="zh">平台整合</span><span class="en-only">Platform</span></span>
+                    <h3><span class="zh">會員中心</span><span class="en-only">Member Center</span></h3>
+                    <ul>
+                        <li><span class="zh">跨平台整合：考量系統架構、異地備援與資料同步，確保用戶體驗一致性。</span><span class="en-only">Cross-platform integration — accounting for architecture, disaster recovery, and data sync for a consistent experience.</span></li>
+                        <li><span class="zh">資安與個資保護：參與資安規劃，優化用戶資料存取機制。</span><span class="en-only">Contributed to security planning and improved how user data is accessed and protected.</span></li>
+                    </ul>
+                </div>
+                <div class="card reveal">
+                    <span class="tag"><span class="zh">功能迭代</span><span class="en-only">Iteration</span></span>
+                    <h3><span class="zh">技術線圖</span><span class="en-only">Technical Charts</span></h3>
+                    <ul>
+                        <li><span class="zh">迭代與優化：主導功能開發，提升操作流暢度。</span><span class="en-only">Led iterative feature development to make interactions smoother.</span></li>
+                        <li><span class="zh">客服支援：優化 FAQ 與內部文件，縮短客服處理時間。</span><span class="en-only">Improved FAQs and internal docs, cutting support handling time.</span></li>
+                    </ul>
+                </div>
+                <div class="card reveal">
+                    <span class="tag"><span class="zh">商業化</span><span class="en-only">Monetisation</span></span>
+                    <h3><span class="zh">即時美股付費</span><span class="en-only">Real-Time US Stocks (Paid)</span></h3>
+                    <ul>
+                        <li><span class="zh">標準化客製需求：推動公版化設計，提高系統擴展性。</span><span class="en-only">Standardised custom requests through a reusable template design to improve scalability.</span></li>
+                        <li><span class="zh">商業邏輯規劃：與後端 PM 合作，確保功能符合市場需求。</span><span class="en-only">Partnered with the back-end PM to align business logic with market demand.</span></li>
+                    </ul>
+                </div>
+                <div class="card reveal">
+                    <span class="tag"><span class="zh">效能</span><span class="en-only">Performance</span></span>
+                    <h3><span class="zh">新版搜尋</span><span class="en-only">New Search</span></h3>
+                    <ul>
+                        <li><span class="zh">效能提升：與技術團隊合作，優化搜尋速度與準確性。</span><span class="en-only">Worked with engineering to improve search speed and accuracy.</span></li>
+                        <li><span class="zh">負載風險評估：測試不同流量條件下的系統穩定性。</span><span class="en-only">Assessed load risk by testing stability under varying traffic conditions.</span></li>
+                    </ul>
+                </div>
+                <div class="card reveal">
+                    <span class="tag"><span class="zh">法規</span><span class="en-only">Compliance</span></span>
+                    <h3><span class="zh">期貨交易所新制</span><span class="en-only">Futures Exchange Regulation</span></h3>
+                    <ul>
+                        <li><span class="zh">跨部門合作：與多個利害關係部門溝通，掌控多平台時程與進度追蹤。</span><span class="en-only">Coordinated multiple stakeholder teams, owning multi-platform timelines and progress tracking.</span></li>
+                        <li><span class="zh">法規制度理解：深入理解專業制度與既有產品功能。</span><span class="en-only">Built deep understanding of the new regulation and existing product capabilities.</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SKILLS -->
+    <section id="skills">
+        <p class="eyebrow reveal"><span class="zh">技能</span><span class="en-only">Skills</span></p>
+        <h2 class="section-title reveal"><span class="zh">專業能力</span><span class="en-only">What I bring</span></h2>
+        <div class="skills-grid">
+            <div class="skill-group reveal">
+                <h3><span class="zh">產品 / 專案管理</span><span class="en-only">Product / Project Management</span></h3>
+                <div class="chips">
+                    <span class="chip"><span class="zh">需求分析</span><span class="en-only">Requirement analysis</span></span>
+                    <span class="chip"><span class="zh">用戶研究</span><span class="en-only">User research</span></span>
+                    <span class="chip"><span class="zh">產品規劃</span><span class="en-only">Product planning</span></span>
+                    <span class="chip"><span class="zh">時程規劃</span><span class="en-only">Roadmapping</span></span>
+                    <span class="chip"><span class="zh">溝通管理</span><span class="en-only">Stakeholder comms</span></span>
+                    <span class="chip"><span class="zh">數據分析</span><span class="en-only">Data analysis</span></span>
+                </div>
+            </div>
+            <div class="skill-group reveal">
+                <h3><span class="zh">工具</span><span class="en-only">Tools</span></h3>
+                <div class="chips">
+                    <span class="chip">Figma</span>
+                    <span class="chip">Adobe XD</span>
+                    <span class="chip">Axure</span>
+                    <span class="chip">Notion</span>
+                    <span class="chip">Asana</span>
+                    <span class="chip">Redmine</span>
+                    <span class="chip">Google Analytics</span>
+                    <span class="chip">Firebase</span>
+                </div>
+            </div>
+            <div class="skill-group reveal">
+                <h3><span class="zh">技術能力</span><span class="en-only">Technical</span></h3>
+                <div class="chips">
+                    <span class="chip">JavaScript</span>
+                    <span class="chip">HTML</span>
+                    <span class="chip">CSS</span>
+                    <span class="chip">SQL</span>
+                </div>
+            </div>
+            <div class="skill-group reveal">
+                <h3><span class="zh">語言能力</span><span class="en-only">Languages</span></h3>
+                <div class="chips">
+                    <span class="chip"><span class="zh">中文（母語）</span><span class="en-only">Mandarin (Native)</span></span>
+                    <span class="chip"><span class="zh">英文 · 中級（TOEIC 790）</span><span class="en-only">English · Intermediate (TOEIC 790)</span></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <div class="alt-bg">
+        <div class="inner">
+            <p class="eyebrow reveal"><span class="zh">學歷與培訓</span><span class="en-only">Education</span></p>
+            <h2 class="section-title reveal"><span class="zh">學歷與培訓</span><span class="en-only">Education & training</span></h2>
+            <div class="edu">
+                <div class="edu-item reveal">
+                    <div class="when">Sep 2014 – Jun 2017</div>
+                    <h3><span class="zh">國立嘉義大學</span><span class="en-only">National Chiayi University</span></h3>
+                    <p><span class="zh">財務金融系</span><span class="en-only">B.B.A. in Finance</span></p>
+                </div>
+                <div class="edu-item reveal">
+                    <div class="when">Oct 2017 – Apr 2018</div>
+                    <h3><span class="zh">資訊工業策進會（中壢）</span><span class="en-only">Institute for Information Industry (Zhongli)</span></h3>
+                    <p><span class="zh">Web / APP 前端設計工程師養成班</span><span class="en-only">Web / App Front-End Engineer Program</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+        <p class="eyebrow reveal"><span class="zh">聯絡</span><span class="en-only">Contact</span></p>
+        <h2 class="reveal"><span class="zh">一起聊聊吧</span><span class="en-only">Let's talk</span></h2>
+        <p class="reveal"><span class="zh">正在尋找產品經理 / 專案經理的機會。歡迎來信，期待與你交流。</span><span class="en-only">Open to product / project management opportunities. Feel free to reach out — I'd love to connect.</span></p>
+        <div class="hero-actions reveal" style="justify-content:center;">
+            <a href="mailto:sandy246836@hotmail.com" class="btn btn-primary">✉ sandy246836@hotmail.com</a>
+            <a href="https://github.com/CamillaWu" target="_blank" rel="noopener" class="btn btn-ghost">GitHub ↗</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-inner">
+            <span>© <span id="year"></span> 吳思竺 Camilla Wu</span>
+            <span><span class="zh">以使用者為核心打造產品</span><span class="en-only">Built with care.</span></span>
+        </div>
+    </footer>
+
+    <script>
+        // Year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile nav
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+        navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+        navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+        // Language toggle (persisted)
+        const langToggle = document.getElementById('langToggle');
+        function setLang(en) {
+            const html = document.documentElement;
+            if (en) { html.setAttribute('data-en', ''); html.setAttribute('lang', 'en'); langToggle.textContent = '中'; }
+            else { html.removeAttribute('data-en'); html.setAttribute('lang', 'zh-Hant'); langToggle.textContent = 'EN'; }
+            try { localStorage.setItem('lang', en ? 'en' : 'zh'); } catch (e) {}
+        }
+        langToggle.addEventListener('click', () => setLang(!document.documentElement.hasAttribute('data-en')));
+        try { if (localStorage.getItem('lang') === 'en') setLang(true); } catch (e) {}
+
+        // Scroll reveal
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    </script>
 </body>
 </html>
