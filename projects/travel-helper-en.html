@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Universal Travel Helper — Case Study · Wu Szu-Chu</title>
+<meta name="description" content="Universal Travel Helper: 0→1 market research and strategy for an AI travel-planning product — opportunity, competitive analysis, personas, positioning, and goals.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/case.css">
+</head>
+<body>
+  <nav class="topnav">
+    <div class="topnav-inner">
+      <a href="../index.html#projects" class="back">← Home</a>
+      <div class="right">
+        <a href="../index.html" class="logo">Wu Szu-Chu <span>吳思竺</span></a>
+        <a class="lang-toggle" href="travel-helper.html" onclick="try{localStorage.setItem('lang','zh')}catch(e){}">中</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="case-hero">
+    <div class="wrap">
+      <p class="kicker">Side Project · CASE STUDY</p>
+      <h1>Universal Travel Helper</h1>
+      <p class="lede">0→1 strategy exploration for an AI travel-planning product: from market opportunity, competitive gaps, and user insight to positioning and business goals — then converging it all into an executable MVP.</p>
+      <div class="meta-row">
+        <span class="badge b-concept">Concept</span>
+        <span class="chip">Product Strategy</span>
+        <span class="chip">Market research</span>
+        <span class="chip">Competitive analysis</span>
+        <span class="chip">MRD · Personas</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="block">
+      <h2 class="sec"><span class="en">Market Opportunity</span>Market opportunity</h2>
+      <p class="body">Travel is shifting from group tours to highly personalised independent travel. Travellers increasingly rely on digital tools for planning and real-time decisions, yet existing tools share clear pain points: <b>fragmented information, hard to filter, shallow personalisation, and no real-time adaptability in-trip</b>. Online travel keeps growing, and <b>AI-driven customisation</b> is the new growth frontier — that's the moment to enter.</p>
+    </section>
+
+    <section class="block">
+      <h2 class="sec"><span class="en">Pain &amp; Gap</span>Pain points &amp; market gaps</h2>
+      <p class="body">I laid out the existing solutions to find what current tools can't do, and mapped those gaps to the product's unique selling points (USPs).</p>
+      <div class="tbl-scroll">
+      <table class="tbl">
+        <thead><tr><th>Pain point</th><th>Current tools</th><th>Gap</th><th>Our solution (USP)</th></tr></thead>
+        <tbody>
+          <tr><td>Planning is slow & inflexible</td><td>Agencies, general AI, basic planners</td><td>Shallow personalisation, no in-trip adaptation</td><td class="hi">Deep personalisation + real-time in-trip optimisation</td></tr>
+          <tr><td>Fragmented, inaccurate info</td><td>Blogs, forums, travel apps</td><td>Hard to filter, stale, unverified</td><td class="hi">Authoritative, real-time, verified information</td></tr>
+          <tr><td>In-trip anxiety</td><td>Translation, maps, separate ticketing apps</td><td>Siloed, not integrated</td><td class="hi">Seamless, all-in-one support & peace of mind</td></tr>
+          <tr><td>Opaque, hard-to-optimise finances</td><td>Manual logs, Excel, generic budget tools</td><td>Can't compare real ticket value</td><td class="hi">Smart financial transparency & value maximisation</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2 class="sec"><span class="en">Personas</span>Target users</h2>
+      <div class="grid2">
+        <div class="pcard">
+          <h3>The Efficiency-Seeker · Sarah</h3>
+          <div class="tagline">30 · Project Manager, tech</div>
+          <p class="quote">"I love travelling but hate the homework! I want someone to just tell me the smoothest, best-value way to go — ideally auto-adjusting too."</p>
+          <p>Values efficiency, tired of comparing across many sites, wants to spend time enjoying the trip rather than on tedious detail.</p>
+        </div>
+        <div class="pcard">
+          <h3>The Cautious Traveller · David</h3>
+          <div class="tagline">45 · Accountant</div>
+          <p class="quote">"I care about budget; with so many pass types it's hard to know which is worth it. Unexpected situations abroad make me anxious — I want a safety net."</p>
+          <p>Budget-sensitive, values verifiable, transparent information, and fears complex pass rules leading to a bad/uneconomical purchase.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2 class="sec"><span class="en">Competitive Landscape</span>Competitive landscape</h2>
+      <div class="tbl-scroll">
+      <table class="tbl">
+        <thead><tr><th>Competitor</th><th>Positioning</th><th>AI planning depth</th><th>In-trip support</th><th>Weakness vs. us</th></tr></thead>
+        <tbody>
+          <tr><td>Tripadvisor</td><td>Reviews & info aggregation</td><td>Recommends/aggregates; itinerary still manual</td><td>Weak</td><td>Shallow AI planning, weak in-trip support</td></tr>
+          <tr><td>Google Travel</td><td>Maps + booking integration</td><td>Strong search/routing, not an itinerary generator</td><td>Strong nav, weak on complex scenarios</td><td>Lacks deep generation & financial management</td></tr>
+          <tr><td>Wanderlog</td><td>Collaborative itinerary editing</td><td>Basic suggestions</td><td>Basic</td><td>Shallow AI, basic finance features</td></tr>
+          <tr><td>iPlan.AI</td><td>Personalised itinerary + routing</td><td>Emphasises personalisation, real-time tweaks</td><td>Claims real-time updates</td><td>Authority unverified, limited in-trip support</td></tr>
+          <tr><td>TripIt</td><td>Auto itinerary org, live alerts</td><td>Parses & reminds, not proactive generation</td><td>Strong (alerts)</td><td>Not proactive AI; no personalisation/finance analysis</td></tr>
+          <tr><td>ChatGPT / Gemini</td><td>Conversational ideation & Q&A</td><td>Flexible but hallucination-prone</td><td>Advice only, no execution</td><td>No real-time data, visual UI, or comparison engine</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2 class="sec"><span class="en">Positioning · USP</span>Product positioning</h2>
+      <ul class="feat">
+        <li><b>Deep personalisation & real-time in-trip optimisation</b> — smart itinerary adjustments based on live changes (weather, transit, state), like a personal concierge.</li>
+        <li><b>Seamless support & peace of mind</b> — integrated translation, local ticketing, live budgeting, and emergency guidance in one "safety net".</li>
+        <li><b>Authoritative, real-time information & verification</b> — key info kept authoritative and fresh, with changes auto-flagged to build trust.</li>
+        <li><b>Smart financial transparency & value maximisation</b> — intelligently compares the real value of tickets and passes to find the most economical choice.</li>
+      </ul>
+    </section>
+
+    <section class="block">
+      <h2 class="sec"><span class="en">Business Goals</span>Business goals</h2>
+      <div class="grid2">
+        <div class="pcard">
+          <h3>Short-term (12 months)</h3>
+          <ul class="feat" style="margin-top:8px;">
+            <li>First-month active users <span class="lead-num">500K</span>, quarterly MAU growth <span class="lead-num">20%+</span></li>
+            <li>Month-1 retention <span class="lead-num">40%</span>; smart-itinerary adoption <span class="lead-num">60%</span></li>
+            <li>Validate an initial monetisation model</li>
+          </ul>
+        </div>
+        <div class="pcard">
+          <h3>Long-term (3–5 years)</h3>
+          <ul class="feat" style="margin-top:8px;">
+            <li>Become the leading AI travel-planning brand in Asia</li>
+            <li>Tens of millions of active users; NPS <span class="lead-num">60+</span></li>
+            <li>Stable positive cash flow and sustainable profitability</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2 class="sec"><span class="en">Strategy → MVP</span>From strategy to MVP</h2>
+      <p class="body">The full vision was too large to ship at once as a solo PM. Using the CRISPE structure, I evaluated options on "user value × feasibility × cost" and converged on the first slice that solves a high-value pain point precisely and is controllable to ship — <b>Ticket &amp; Pass Comparison</b>.</p>
+      <div class="callout">
+        <div class="lab">Next step</div>
+        Starting from the "financial transparency & value maximisation" USP, made real as a buildable MVP.
+        <div style="margin-top:12px;"><a href="ticket-compare-en.html" class="btn btn-primary">See the MVP: Ticket &amp; Pass Comparison →</a></div>
+      </div>
+    </section>
+    <section class="block">
+      <h2 class="sec"><span class="en">Artifacts</span>Project artifacts</h2>
+      <p class="body">Original planning documents from this project (excerpted; original docs are in Chinese):</p>
+      <div class="artifacts">
+        <a class="artifact" href="../assets/travel-helper-feature-concept.pdf" target="_blank" rel="noopener">
+          <span class="ico">PDF</span>
+          <span class="atext"><b>Feature Concepts &amp; Definition</b><small>Option ideation · CRISPE eval · feature detail</small></span>
+        </a>
+        <a class="artifact" href="../assets/travel-helper-needs-exploration.pdf" target="_blank" rel="noopener">
+          <span class="ico">PDF</span>
+          <span class="atext"><b>Needs Exploration</b><small>The essence of user needs &amp; insights</small></span>
+        </a>
+        <a class="artifact" href="../assets/travel-helper-competitor-analysis.pdf" target="_blank" rel="noopener">
+          <span class="ico">PDF</span>
+          <span class="atext"><b>Competitive Positioning</b><small>Competitor positioning &amp; market gaps</small></span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="case">
+    <div class="wrap">
+      <a href="../index.html#projects" class="btn btn-ghost">All projects</a>
+    </div>
+  </footer>
+</body>
+</html>

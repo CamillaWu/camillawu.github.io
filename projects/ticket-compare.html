@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>票券通卡比價王 — Case Study · 吳思竺 Wu Szu-Chu</title>
+<meta name="description" content="票券通卡比價王：AI 驅動的旅遊票券比價工具。從策略決策、產品規格到自建 MVP 的完整案例。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/case.css">
+</head>
+<body>
+  <nav class="topnav">
+    <div class="topnav-inner">
+      <a href="../index.html#projects" class="back">← 返回首頁</a>
+      <div class="right">
+        <a href="../index.html" class="logo">吳思竺 <span>Wu Szu-Chu</span></a>
+        <a class="lang-toggle" href="ticket-compare-en.html" onclick="try{localStorage.setItem('lang','en')}catch(e){}">EN</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="case-hero">
+    <div class="wrap">
+      <p class="kicker">個人專案 · CASE STUDY</p>
+      <h1>票券通卡比價王</h1>
+      <p class="lede">AI 驅動的旅遊票券比價工具——用拖曳規劃行程，系統近即時自動算出「最划算」的票券組合，降低自由行旅客的選擇困難與財務焦慮。</p>
+      <div class="meta-row">
+        <span class="badge b-live">開發中 MVP</span>
+        <span class="chip">個人專案 · Solo PM · AI 輔助開發</span>
+        <span class="chip mono">Google Gemini API</span>
+        <span class="chip mono">Search Grounding</span>
+        <span class="chip mono">i18n 中/EN/日</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="block">
+      <h2 class="sec"><span class="en">Problem</span>問題</h2>
+      <p class="body">自由行旅客在規劃行程時，面對五花八門的景點門票、城市通票與交通卡，感到混亂且難以比較。他們耗費大量時間，卻仍不確定自己的選擇是否最划算——這種不確定性帶來財務焦慮，影響整體旅遊體驗。</p>
+      <div class="callout">
+        <div class="lab">Core insight</div>
+        通用型 AI（ChatGPT/Gemini）能聊行程，卻缺三件事：<b>即時票價數據</b>、<b>視覺化規劃介面</b>、<b>專門的比價引擎</b>。機會就在這個缺口。
+      </div>
+    </section>
+
+    <section class="block">
+      <h2 class="sec"><span class="en">The Decision</span>策略決策：為什麼是「比價王」</h2>
+      <p class="body">這是「萬能旅遊小幫手」母概念下的一個切點。我用 <b>CRISPE 結構</b>評估三個方案，依「用戶價值 × 技術可行性 × 實現成本」做取捨——在獨立 PM、有限資源的前提下，選擇能精準解決單一高價值痛點、且可控可交付的 MVP。</p>
+      <div class="tbl-scroll">
+      <table class="tbl">
+        <thead><tr><th>方案</th><th>用戶價值</th><th>技術可行性</th><th>實現成本</th><th>決策</th></tr></thead>
+        <tbody>
+          <tr><td>A · 沉浸式預算守門員</td><td>最高</td><td class="hi">低</td><td>高</td><td>捨棄：數據與 AI 預估門檻過高，獨立難交付</td></tr>
+          <tr class="pick"><td><b>B · 極簡比價王</b></td><td>高</td><td class="hi">高</td><td>可控</td><td><b class="hi">✓ 選為 MVP</b>：價值明確、成本聚焦</td></tr>
+          <tr><td>C · 社群消費共筆</td><td>中</td><td>中</td><td>中</td><td>捨棄：數據品質不穩、偏離智能定位</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <div class="callout">
+        <div class="lab">明確不做 · Out of scope</div>
+        MVP 聚焦「購票<b>前</b>的比價決策」，刻意不做記帳、超支提醒與旅途中消費追蹤——避免範疇膨脹、確保如期交付。
+      </div>
+    </section>
+
+    <section class="block">
+      <h2 class="sec"><span class="en">Solution</span>解法與核心功能</h2>
+      <ul class="feat">
+        <li><b>AI 旅遊數據搜尋引擎</b>：串接 Google Gemini API 並開啟 Search grounding，流式回傳景點／門票／通票／交通票，確保資訊即時性。</li>
+        <li><b>視覺化行程規劃器</b>：可拖曳的雙欄介面（左側資源庫、右側多日行程區），含通票覆蓋提示、多地頁籤與每日交通次數設定。</li>
+        <li><b>全自動比價引擎</b>：行程任何變動即在後端重算所有購票組合，與「單獨全買」基準比較（800ms 防抖避免過載）。</li>
+        <li><b>AI 智能摘要</b>：把結構化比價結果轉成「結論＋原因＋差異點」的自然語言，醒目標記最划算方案，並附條款與更新時間提醒。</li>
+        <li><b>URL 為唯一事實來源（SSOT）</b>：地點／天數／項目等核心狀態寫入網址，可分享、可書籤、回訪自動還原。</li>
+        <li><b>國際化</b>：繁體中文／English／日本語，AI 生成內容與介面語言一致。</li>
+      </ul>
+    </section>
+
+    <section class="block">
+      <h2 class="sec"><span class="en">User Journey</span>使用者旅程</h2>
+      <p class="body">我把「進站到做出購買決策」的端到端路徑拆成 8 個階段，讓 UI、前端狀態、API 串接與 AI 摘要都不偏離核心流程。</p>
+      <div class="steps">
+        <div class="step"><div class="n">A</div><h4>進站 Landing</h4><p>理解價值主張，於醒目入口輸入城市。</p></div>
+        <div class="step"><div class="n">B</div><h4>搜尋 Search</h4><p>AI grounding 取得結構化資源清單，標示來源數與生成時間。</p></div>
+        <div class="step"><div class="n">C</div><h4>挑選 Select</h4><p>點擊／拖曳加入行程，即時視覺回饋。</p></div>
+        <div class="step"><div class="n">D</div><h4>行程編排 Plan</h4><p>多日拖曳排序、設定每日交通次數。</p></div>
+        <div class="step"><div class="n">E</div><h4>自動比價 Compare</h4><p>行程一改即重算（800ms 防抖），輸出結構化比價。</p></div>
+        <div class="step"><div class="n">F</div><h4>AI 摘要 Summarize</h4><p>串流輸出結論＋原因，標記最划算方案。</p></div>
+        <div class="step"><div class="n">G</div><h4>決策購買 Buy</h4><p>確認條款／有效期，跳轉購買連結。</p></div>
+        <div class="step"><div class="n">H</div><h4>分享回訪 Share</h4><p>URL 即狀態，可分享、書籤、回來再改。</p></div>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2 class="sec"><span class="en">Architecture</span>系統架構</h2>
+      <p class="body">前端與 AI 引擎深度整合；比價邏輯走規則引擎輸出結構化結果，再由 AI 轉成可讀建議——表格先到、摘要後到的漸進式體驗。</p>
+      <div class="flow">
+        <div class="fbox l-in"><div class="t">使用者輸入</div><div class="s">需求 / 查詢條件</div></div>
+        <div class="farrow"></div>
+        <div class="fbox l-fe"><div class="t">前端層（Web / App）</div><div class="s">UI · 查詢表單 · 結果展示</div></div>
+        <div class="farrow"></div>
+        <div class="frow">
+          <div class="fbox l-ai"><div class="t">AI Prompt 模組</div><div class="s">系統提示 · 上下文管理</div></div>
+          <div class="fbox l-ai"><div class="t">意圖解析與資料請求</div><div class="s">轉換成 API 參數</div></div>
+        </div>
+        <div class="farrow"></div>
+        <div class="fbox l-eng"><div class="t">比價引擎</div><div class="s">聚合供應商票價與優惠</div></div>
+        <div class="farrow"></div>
+        <div class="fbox l-eng"><div class="t">資料驗證模組</div><div class="s">比對多來源 · 去除異常</div></div>
+        <div class="farrow"></div>
+        <div class="frow">
+          <div class="fbox l-eng"><div class="t">歷史資料庫與快取</div><div class="s">加速查詢 · 趨勢分析</div></div>
+          <div class="fbox l-ext"><div class="t">外部 API</div><div class="s">票券供應商 · OTA · 金流</div></div>
+        </div>
+        <div class="farrow"></div>
+        <div class="fbox l-ai"><div class="t">AI 回應生成</div><div class="s">格式化結果 · 個人化推薦</div></div>
+        <div class="farrow"></div>
+        <div class="fbox l-out"><div class="t">輸出結果</div><div class="s">表格 · 圖表 · 推薦理由</div></div>
+      </div>
+      <p class="note">API：GET /api/search · POST /api/compare · POST /api/summarize　|　標準化錯誤物件 { errorCode, message }</p>
+    </section>
+
+    <section class="block">
+      <h2 class="sec"><span class="en">Success Metrics</span>成功指標</h2>
+      <ul class="feat">
+        <li><b>任務完成率</b>：成功建立含 ≥3 個景點的行程並查看比價結果的比例。</li>
+        <li><b>AI 價值認同率</b>：點擊查看「最划算方案」詳情的比例，或對 AI 摘要的滿意度。</li>
+        <li><b>數據準確性</b>：使用者回報票價／通票資訊錯誤的比例 <span class="lead-num">&lt; 0.5%</span>。</li>
+        <li><b>活躍度</b>：單次 session 的拖曳互動次數，與「新增一天」的使用頻率。</li>
+      </ul>
+    </section>
+    <section class="block">
+      <h2 class="sec"><span class="en">Artifacts</span>專案文件</h2>
+      <p class="body">本專案的原始規劃文件（節錄、已整理）：</p>
+      <div class="artifacts">
+        <a class="artifact" href="../assets/ticket-compare-PRD.pdf" target="_blank" rel="noopener">
+          <span class="ico">PDF</span>
+          <span class="atext"><b>產品需求文件 (PRD)</b><small>完整版 · 問題 / 目標 / 功能 / 指標</small></span>
+        </a>
+        <a class="artifact" href="../assets/ticket-compare-tech-blueprint.pdf" target="_blank" rel="noopener">
+          <span class="ico">PDF</span>
+          <span class="atext"><b>技術藍圖 Technical Blueprint</b><small>系統架構 · API · 前端策略</small></span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="case">
+    <div class="wrap">
+      <a href="travel-helper.html" class="btn btn-ghost">看母概念：萬能旅遊小幫手 →</a>
+      <a href="../index.html#projects" class="btn btn-primary" style="margin-left:8px;">返回所有專案</a>
+    </div>
+  </footer>
+</body>
+</html>

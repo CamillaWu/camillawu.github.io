@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>萬能旅遊小幫手 — Case Study · 吳思竺 Wu Szu-Chu</title>
+<meta name="description" content="萬能旅遊小幫手：AI 旅遊規劃產品的 0→1 市場研究與策略——市場機會、競品分析、Persona、產品定位與商業目標。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/case.css">
+</head>
+<body>
+  <nav class="topnav">
+    <div class="topnav-inner">
+      <a href="../index.html#projects" class="back">← 返回首頁</a>
+      <div class="right">
+        <a href="../index.html" class="logo">吳思竺 <span>Wu Szu-Chu</span></a>
+        <a class="lang-toggle" href="travel-helper-en.html" onclick="try{localStorage.setItem('lang','en')}catch(e){}">EN</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="case-hero">
+    <div class="wrap">
+      <p class="kicker">個人專案 · CASE STUDY</p>
+      <h1>萬能旅遊小幫手</h1>
+      <p class="lede">一款 AI 旅遊規劃產品的 0→1 策略探索：從市場機會、競品缺口、使用者洞察，到產品定位與商業目標——再從中收斂出可執行的 MVP。</p>
+      <div class="meta-row">
+        <span class="badge b-concept">概念探索</span>
+        <span class="chip">個人專案 · Product Strategy</span>
+        <span class="chip">市場研究</span>
+        <span class="chip">競品分析</span>
+        <span class="chip">MRD · Persona</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="block">
+      <h2 class="sec"><span class="en">Market Opportunity</span>市場機會</h2>
+      <p class="body">旅遊市場正從團體旅遊轉向高度個人化的自由行。旅客越來越依賴數位工具進行規劃與即時決策，但現有工具普遍存在<b>資訊碎片化、難以篩選、缺乏深度個人化、旅途中無法即時應變</b>等痛點。全球線上旅遊持續成長，其中 <b>AI 驅動的客製化服務</b>正成為新的增長點——這是切入的時機。</p>
+    </section>
+
+    <section class="block">
+      <h2 class="sec"><span class="en">Pain &amp; Gap</span>痛點與市場缺口</h2>
+      <p class="body">我把市場上既有方案攤開來看，找出「現況工具做不到」的缺口，對應出產品的獨特賣點（USP）。</p>
+      <div class="tbl-scroll">
+      <table class="tbl">
+        <thead><tr><th>痛點</th><th>現況工具</th><th>缺口</th><th>我們的解法 (USP)</th></tr></thead>
+        <tbody>
+          <tr><td>規劃耗時且無彈性</td><td>旅行社、通用型 AI、基礎規劃 App</td><td>缺乏深度個人化，行中無法即時應變</td><td class="hi">深度個人化 + 旅途中即時動態優化</td></tr>
+          <tr><td>資訊碎片化、不準確</td><td>部落格、論壇、旅遊 App</td><td>難篩選、時效差、缺乏權威驗證</td><td class="hi">權威性與即時性的資訊整合與驗證</td></tr>
+          <tr><td>旅途中應變焦慮</td><td>翻譯、地圖、個別購票 App</td><td>功能獨立、無法整合</td><td class="hi">全面的無縫支援與安心感</td></tr>
+          <tr><td>財務不透明、難優化</td><td>手動記帳、Excel、通用預算工具</td><td>無法比較票券真實效益</td><td class="hi">智能財務透明與價值最大化</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2 class="sec"><span class="en">Personas</span>目標使用者</h2>
+      <div class="grid2">
+        <div class="pcard">
+          <h3>效率控 · Sarah</h3>
+          <div class="tagline">30 歲 · 科技業專案經理</div>
+          <p class="quote">「我喜歡旅行，但討厭做功課！希望有人直接告訴我怎麼玩最順、最划算，最好還能自動調整。」</p>
+          <p>重視效率，厭倦多網站爬文比價，希望把時間花在享受旅程，而非繁瑣細節。</p>
+        </div>
+        <div class="pcard">
+          <h3>謹慎型 · David</h3>
+          <div class="tagline">45 歲 · 會計師</div>
+          <p class="quote">「我對預算很在意，通票種類那麼多很難搞清楚哪種划算；在國外遇到突發狀況也會焦慮，希望有個後盾。」</p>
+          <p>對預算敏感、重視可驗證的透明資訊，最怕通票規則複雜造成買錯、不划算。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2 class="sec"><span class="en">Competitive Landscape</span>競品分析</h2>
+      <div class="tbl-scroll">
+      <table class="tbl">
+        <thead><tr><th>競品</th><th>核心定位</th><th>AI 規劃深度</th><th>旅途即時支援</th><th>相對於我們的劣勢</th></tr></thead>
+        <tbody>
+          <tr><td>Tripadvisor</td><td>旅遊評論與資訊聚合</td><td>偏推薦聚合，行程仍手動</td><td>薄弱</td><td>AI 規劃深度不足、行中支援弱</td></tr>
+          <tr><td>Google Travel</td><td>地圖導航 + 預訂整合</td><td>強於搜尋/路線，非行程生成器</td><td>導航強、複雜情境弱</td><td>缺深度行程生成與財務管理</td></tr>
+          <tr><td>Wanderlog</td><td>協作式行程編排</td><td>基礎建議</td><td>基礎</td><td>AI 深度不足、財務功能基礎</td></tr>
+          <tr><td>iPlan.AI</td><td>個性化行程 + 路線優化</td><td>強調個性化、實時調整</td><td>聲稱即時更新</td><td>權威性待驗證、行中支援不足</td></tr>
+          <tr><td>TripIt</td><td>自動化行程組織、實時提醒</td><td>解析提醒，非主動生成</td><td>強（提醒）</td><td>非主動 AI、缺個人化與財務分析</td></tr>
+          <tr><td>ChatGPT / Gemini</td><td>對話式發想與查詢</td><td>靈活但易幻覺</td><td>僅建議、無執行力</td><td>缺即時數據、視覺介面與比價引擎</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2 class="sec"><span class="en">Positioning · USP</span>產品定位</h2>
+      <ul class="feat">
+        <li><b>深度個人化與旅途中即時動態優化</b>：依實時變化（天氣、交通、狀態）提供智能行程調整，像「私人禮賓」。</li>
+        <li><b>全面的無縫支援與安心感</b>：整合翻譯、在地購票協作、即時預算與緊急應變，一站式「後援」。</li>
+        <li><b>權威性與即時性的資訊整合與驗證</b>：關鍵資訊確保權威與即時更新，自動標示變動、建立信任。</li>
+        <li><b>智能財務透明與價值最大化</b>：智能比較各種票券、通卡的真實效益，幫用戶做出最經濟的選擇。</li>
+      </ul>
+    </section>
+
+    <section class="block">
+      <h2 class="sec"><span class="en">Business Goals</span>商業目標</h2>
+      <div class="grid2">
+        <div class="pcard">
+          <h3>短期（12 個月）</h3>
+          <ul class="feat" style="margin-top:8px;">
+            <li>首月活躍用戶 <span class="lead-num">50 萬</span>，季度 MAU 成長 <span class="lead-num">20%+</span></li>
+            <li>次月留存 <span class="lead-num">40%</span>、智能行程生成啟用率 <span class="lead-num">60%</span></li>
+            <li>完成初步變現模式測試</li>
+          </ul>
+        </div>
+        <div class="pcard">
+          <h3>長期（3–5 年）</h3>
+          <ul class="feat" style="margin-top:8px;">
+            <li>成為亞洲 AI 旅遊規劃領導品牌</li>
+            <li>數千萬級活躍用戶，NPS 維持 <span class="lead-num">60+</span></li>
+            <li>穩定正向現金流與可持續盈利</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2 class="sec"><span class="en">Strategy → MVP</span>從策略收斂到 MVP</h2>
+      <p class="body">完整願景太大、獨立難一次交付。我以 CRISPE 結構評估方案，依「用戶價值 × 技術可行性 × 成本」收斂出第一個能精準解決高價值痛點、且可控可交付的切點——<b>票券通卡比價王</b>。</p>
+      <div class="callout">
+        <div class="lab">Next step</div>
+        從「財務透明與價值最大化」這條 USP 出發，落地為一個可實作的 MVP。
+        <div style="margin-top:12px;"><a href="ticket-compare.html" class="btn btn-primary">看 MVP：票券通卡比價王 →</a></div>
+      </div>
+    </section>
+    <section class="block">
+      <h2 class="sec"><span class="en">Artifacts</span>專案文件</h2>
+      <p class="body">本專案的原始規劃文件（節錄、已整理）：</p>
+      <div class="artifacts">
+        <a class="artifact" href="../assets/travel-helper-feature-concept.pdf" target="_blank" rel="noopener">
+          <span class="ico">PDF</span>
+          <span class="atext"><b>功能構想與定義</b><small>方案發想 · CRISPE 評估 · 功能細節</small></span>
+        </a>
+        <a class="artifact" href="../assets/travel-helper-needs-exploration.pdf" target="_blank" rel="noopener">
+          <span class="ico">PDF</span>
+          <span class="atext"><b>需求本質探索</b><small>用戶需求的本質與洞察</small></span>
+        </a>
+        <a class="artifact" href="../assets/travel-helper-competitor-analysis.pdf" target="_blank" rel="noopener">
+          <span class="ico">PDF</span>
+          <span class="atext"><b>競品定位分析</b><small>競品定位與市場缺口</small></span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="case">
+    <div class="wrap">
+      <a href="../index.html#projects" class="btn btn-ghost">返回所有專案</a>
+    </div>
+  </footer>
+</body>
+</html>

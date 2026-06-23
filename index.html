@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="吳思竺 Camilla Wu — 產品經理 Product Manager。4 年以上產品管理經驗，專長 0→1 產品開發、UX 規劃與跨部門協作。">
-    <title>吳思竺 Camilla Wu — Product Manager</title>
+    <meta name="description" content="吳思竺 Wu Szu-Chu (Camilla) — 產品經理 Product Manager。5 年以上產品管理經驗，專長 0→1 產品開發、AI 產品實作與跨部門協作；金融資訊／股市應用領域。">
+    <title>吳思竺 Wu Szu-Chu (Camilla) — Product Manager</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --ink: #14181f;
@@ -16,21 +16,27 @@
             --line: #e7e9ee;
             --bg: #ffffff;
             --bg-alt: #f7f8fa;
-            --accent: #2563d6;
-            --accent-soft: #eaf1fd;
+            --accent: #4f46e5;
+            --accent-2: #9333ea;
+            --accent-soft: #eef0fe;
+            --grad: linear-gradient(135deg, #4f46e5 0%, #9333ea 100%);
+            --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
             --radius: 16px;
             --maxw: 940px;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
+        html { scroll-behavior: smooth; font-size: 17px; }
         body {
             font-family: "Noto Sans TC", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
             color: var(--ink);
-            background: var(--bg);
+            background-color: var(--bg);
+            background-image: radial-gradient(rgba(79,70,229,0.07) 1px, transparent 1px);
+            background-size: 22px 22px;
             line-height: 1.7;
             -webkit-font-smoothing: antialiased;
             text-rendering: optimizeLegibility;
         }
+        body::before { content: ""; position: fixed; inset: 0 0 auto 0; height: 3px; background: var(--grad); z-index: 200; }
         a { color: inherit; text-decoration: none; }
         ::selection { background: var(--accent-soft); }
 
@@ -47,7 +53,7 @@
             display: flex; align-items: center; justify-content: space-between;
         }
         .logo { font-weight: 800; font-size: 1.05rem; letter-spacing: .2px; }
-        .logo span { color: var(--accent); }
+        .logo span { background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
         .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
         .nav-links a { font-size: .92rem; font-weight: 500; color: var(--ink-soft); transition: color .2s; }
         .nav-links a:hover { color: var(--accent); }
@@ -63,13 +69,17 @@
         /* ---------- LAYOUT ---------- */
         section { max-width: var(--maxw); margin: 0 auto; padding: 72px 24px; }
         .eyebrow {
-            text-transform: uppercase; letter-spacing: 2.5px; font-size: .72rem;
-            font-weight: 700; color: var(--accent); margin-bottom: 14px;
+            text-transform: uppercase; letter-spacing: 2px; font-size: .74rem;
+            font-weight: 600; color: var(--accent); margin-bottom: 14px; font-family: var(--mono);
         }
+        .eyebrow::before { content: "// "; opacity: .6; }
         h2.section-title { font-size: 1.7rem; font-weight: 800; margin-bottom: 36px; letter-spacing: -.3px; }
 
         /* ---------- HERO ---------- */
-        .hero { padding-top: 90px; padding-bottom: 64px; }
+        .hero { padding-top: 90px; padding-bottom: 64px; position: relative; }
+        .hero::before, .hero::after { content: ""; position: absolute; border-radius: 50%; filter: blur(70px); opacity: .4; z-index: -1; pointer-events: none; }
+        .hero::before { width: 380px; height: 380px; background: radial-gradient(circle, #6366f1, transparent 70%); top: -70px; right: -30px; }
+        .hero::after { width: 320px; height: 320px; background: radial-gradient(circle, #a855f7, transparent 70%); top: 30px; left: -90px; }
         .hero .kicker { color: var(--accent); font-weight: 700; font-size: .95rem; letter-spacing: .5px; margin-bottom: 18px; }
         .hero h1 { font-size: clamp(2.4rem, 6vw, 3.6rem); line-height: 1.12; font-weight: 900; letter-spacing: -1px; margin-bottom: 10px; }
         .hero h1 .en { display: block; font-family: "Inter", sans-serif; color: var(--muted); font-weight: 700; font-size: clamp(1.1rem, 2.6vw, 1.5rem); letter-spacing: 0; margin-top: 8px; }
@@ -81,17 +91,17 @@
             padding: 12px 24px; border-radius: 999px; font-weight: 600; font-size: .95rem;
             transition: all .2s; cursor: pointer; border: 1px solid transparent;
         }
-        .btn-primary { background: var(--accent); color: #fff; }
-        .btn-primary:hover { background: #1d4fb0; transform: translateY(-1px); }
+        .btn-primary { background: var(--grad); color: #fff; }
+        .btn-primary:hover { filter: brightness(1.07); transform: translateY(-1px); }
         .btn-ghost { border-color: var(--line); color: var(--ink); }
         .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
 
         /* ---------- ABOUT / HIGHLIGHTS ---------- */
-        .alt-bg { background: var(--bg-alt); max-width: 100%; }
+        .alt-bg { background: rgba(79,70,229,0.045); max-width: 100%; }
         .alt-bg > .inner { max-width: var(--maxw); margin: 0 auto; padding: 72px 24px; }
         .highlights { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 20px; }
-        .stat { background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; }
-        .stat .num { font-size: 2.1rem; font-weight: 900; color: var(--accent); font-family: "Inter", sans-serif; }
+        .stat { background: rgba(255,255,255,0.7); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(79,70,229,0.13); border-radius: var(--radius); padding: 26px; }
+        .stat .num { font-size: 2.1rem; font-weight: 800; font-family: var(--mono); background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
         .stat .label { font-size: .95rem; color: var(--ink-soft); margin-top: 6px; }
 
         /* ---------- EXPERIENCE TIMELINE ---------- */
@@ -103,7 +113,7 @@
             width: 12px; height: 12px; border-radius: 50%; background: var(--accent);
             box-shadow: 0 0 0 4px var(--accent-soft);
         }
-        .job .when { font-size: .82rem; font-weight: 600; color: var(--accent); font-family: "Inter", sans-serif; letter-spacing: .3px; }
+        .job .when { font-size: .82rem; font-weight: 600; color: var(--accent); font-family: var(--mono); letter-spacing: .3px; }
         .job h3 { font-size: 1.2rem; font-weight: 700; margin: 4px 0 2px; }
         .job .co { color: var(--ink-soft); font-weight: 500; margin-bottom: 12px; }
         .job ul { list-style: none; }
@@ -113,27 +123,45 @@
         /* ---------- PROJECTS ---------- */
         .projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
         .card {
-            border: 1px solid var(--line); border-radius: var(--radius); padding: 26px;
-            background: var(--bg); transition: all .25s;
+            border: 1px solid rgba(79,70,229,0.13); border-radius: var(--radius); padding: 26px;
+            background: rgba(255,255,255,0.72); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); transition: all .25s;
         }
         .card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 12px 30px -16px rgba(37,99,214,.35); }
         .card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 4px; }
         .card .tag { display: inline-block; font-size: .72rem; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; color: var(--accent); background: var(--accent-soft); padding: 3px 10px; border-radius: 999px; margin-bottom: 12px; }
         .card ul { list-style: none; }
-        .card li { position: relative; padding-left: 18px; margin-bottom: 7px; font-size: .95rem; color: var(--ink-soft); }
+        .card li { position: relative; padding-left: 18px; margin-bottom: 8px; font-size: 1rem; color: var(--ink-soft); }
         .card li::before { content: "→"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+        .subgroup { font-size: 1.02rem; font-weight: 700; margin: 0 0 16px; display: flex; align-items: center; gap: 10px; color: var(--ink); }
+        .subgroup::before { content: ""; width: 22px; height: 3px; border-radius: 2px; background: var(--accent); }
+        .subgroup.mt { margin-top: 44px; }
+        .card-head { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+        .card-head .tag { margin-bottom: 0; }
+        .badge { font-size: .7rem; font-weight: 600; padding: 3px 10px; border-radius: 999px; letter-spacing: .3px; font-family: var(--mono); }
+        .badge-live { background: #e6f7ee; color: #0a7d3f; }
+        .badge-concept { background: #fff3e0; color: #b26a00; }
+        .card .case-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 14px; font-family: var(--mono); font-size: .82rem; font-weight: 600; color: var(--accent); transition: gap .2s; }
+        .card .case-link:hover { gap: 10px; }
+        .pdr { display: grid; gap: 9px; margin-top: 2px; }
+        .pdr-row { display: grid; grid-template-columns: auto 1fr; gap: 10px; align-items: start; }
+        .pdr-k { font-family: var(--mono); font-size: .66rem; font-weight: 700; letter-spacing: .4px; padding: 2px 7px; border-radius: 6px; white-space: nowrap; margin-top: 3px; }
+        .pdr-k.p { background: #f1f2f6; color: var(--muted); }
+        .pdr-k.d { background: var(--accent-soft); color: var(--accent); }
+        .pdr-k.r { background: #e6f7ee; color: #0a7d3f; }
+        .pdr-v { font-size: .94rem; color: var(--ink-soft); line-height: 1.55; }
+        .pdr-v .hl { color: var(--accent); font-weight: 700; }
 
         /* ---------- SKILLS ---------- */
         .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
         .skill-group h3 { font-size: 1rem; font-weight: 700; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
         .chips { display: flex; flex-wrap: wrap; gap: 9px; }
-        .chip { border: 1px solid var(--line); border-radius: 999px; padding: 7px 15px; font-size: .88rem; color: var(--ink-soft); background: var(--bg); transition: all .2s; }
+        .chip { border: 1px solid var(--line); border-radius: 999px; padding: 7px 15px; font-size: .92rem; color: var(--ink-soft); background: var(--bg); transition: all .2s; }
         .chip:hover { border-color: var(--accent); color: var(--accent); }
 
         /* ---------- EDUCATION ---------- */
         .edu { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
         .edu-item { border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; }
-        .edu-item .when { font-size: .82rem; font-weight: 600; color: var(--accent); font-family: "Inter", sans-serif; }
+        .edu-item .when { font-size: .82rem; font-weight: 600; color: var(--accent); font-family: var(--mono); }
         .edu-item h3 { font-size: 1.08rem; font-weight: 700; margin: 6px 0 3px; }
         .edu-item p { color: var(--ink-soft); font-size: .95rem; }
 
@@ -168,7 +196,7 @@
 <body>
     <nav>
         <div class="nav-inner">
-            <a href="#top" class="logo">吳思竺 <span>Camilla Wu</span></a>
+            <a href="#top" class="logo">吳思竺 <span>Wu Szu-Chu</span></a>
             <button class="nav-toggle" aria-label="Menu" id="navToggle">☰</button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#about"><span class="zh">關於</span><span class="en-only">About</span></a></li>
@@ -185,17 +213,18 @@
     <section class="hero" id="top">
         <p class="kicker reveal"><span class="zh">產品經理 · 專案經理</span><span class="en-only">Product Manager · Project Manager</span></p>
         <h1 class="reveal">
-            <span class="zh">吳思竺</span><span class="en-only">Camilla Wu</span>
-            <span class="en zh">Camilla Wu</span>
+            <span class="zh">吳思竺</span><span class="en-only">Wu Szu-Chu</span>
+            <span class="en">Camilla Wu</span>
         </h1>
-        <p class="role reveal"><span class="zh">打造以使用者為核心的數位產品</span><span class="en-only">Building user-centred digital products</span></p>
+        <p class="role reveal"><span class="zh">以 AI 與數據，打造使用者真正想用的產品</span><span class="en-only">Building products people truly want — with AI & data</span></p>
         <p class="summary reveal">
-            <span class="zh">4 年以上產品管理經驗，擅長將複雜、模糊的需求轉化為使用者真正想用的產品。我在市佔超過 90%、單月不重複用戶破百萬的券商級股市 App 擔任產品經理，主導多項功能從 0 到 1 的開發與優化。結合財務金融本科與前端工程背景，我能在商業、技術與使用者之間有效溝通、做出務實取捨——這套在高複雜、嚴謹環境中釐清問題本質的方法，並不限於單一產業。</span>
-            <span class="en-only">Product manager with 4+ years of experience turning complex, ambiguous requirements into products people actually want to use. I'm the PM for a brokerage-grade stock-market app that holds 90%+ of Taiwan's broker mobile-trading market and reaches over 1M monthly active users, where I've led multiple features from 0 to 1. Combining a finance degree with a front-end engineering background, I communicate fluently across business, technology, and users and make pragmatic trade-offs — a way of cutting through complex, tightly-regulated problems that carries well beyond any single industry.</span>
+            <span class="zh">產品經理，5 年以上經驗，擅長把複雜、模糊的需求拆解成清楚的問題，並轉化為使用者真正想用的產品；近期投入 AI 產品開發，能運用 AI 工具快速打造可運作的原型與 MVP。我負責完整產品週期，主導過多項功能從 0 到 1——其中一款是單月不重複用戶破百萬的市場領先產品（金融資訊／股市應用）。結合前端工程背景與財務金融專業訓練，能在商業、技術與使用者之間有效溝通、做出務實取捨。</span>
+            <span class="en-only">Product manager with 5+ years of experience turning complex, ambiguous needs into products people actually want to use — and recently moving into AI product development, using AI tools to rapidly build working prototypes and MVPs. I own the full product cycle and have led multiple features from 0 to 1, including a category-leading product with 1M+ monthly active users (financial-information / stock-market apps). With a front-end engineering background and finance training, I bridge business, technology, and users and make pragmatic trade-offs.</span>
         </p>
         <div class="hero-actions reveal">
             <a href="#contact" class="btn btn-primary"><span class="zh">聯絡我</span><span class="en-only">Get in touch</span></a>
-            <a href="#experience" class="btn btn-ghost"><span class="zh">查看經歷 ↓</span><span class="en-only">View experience ↓</span></a>
+            <a href="assets/Camilla-Wu-CV.pdf" download="吳思竺 Wu Szu-Chu 履歷.pdf" class="btn btn-ghost js-cv"><span class="zh">下載履歷 PDF ↓</span><span class="en-only">Download CV ↓</span></a>
+            <a href="#experience" class="btn btn-ghost"><span class="zh">查看經歷</span><span class="en-only">View experience</span></a>
         </div>
     </section>
 
@@ -206,20 +235,20 @@
             <h2 class="section-title reveal"><span class="zh">核心優勢</span><span class="en-only">At a glance</span></h2>
             <div class="highlights">
                 <div class="stat reveal">
-                    <div class="num">4+</div>
-                    <div class="label"><span class="zh">年產品管理經驗</span><span class="en-only">years in product management</span></div>
-                </div>
-                <div class="stat reveal">
                     <div class="num">1M+</div>
                     <div class="label"><span class="zh">服務用戶（單月不重複用戶 MAU）</span><span class="en-only">monthly active users on the product</span></div>
                 </div>
                 <div class="stat reveal">
-                    <div class="num">90%+</div>
-                    <div class="label"><span class="zh">台灣券商行動交易市佔</span><span class="en-only">share of Taiwan broker mobile trading</span></div>
+                    <div class="num">0→1</div>
+                    <div class="label"><span class="zh">主導多項功能從無到有</span><span class="en-only">features led from scratch to launch</span></div>
                 </div>
                 <div class="stat reveal">
-                    <div class="num">0→1</div>
-                    <div class="label"><span class="zh">主導多項功能從無到有</span><span class="en-only">led features from scratch to launch</span></div>
+                    <div class="num">50%↓</div>
+                    <div class="label"><span class="zh">重塑流程使客服詢問量下降</span><span class="en-only">drop in support queries (flow redesign)</span></div>
+                </div>
+                <div class="stat reveal">
+                    <div class="num">10+</div>
+                    <div class="label"><span class="zh">跨部門單位協作（最大專案）</span><span class="en-only">cross-functional units (largest project)</span></div>
                 </div>
             </div>
         </div>
@@ -231,7 +260,7 @@
         <h2 class="section-title reveal"><span class="zh">工作經歷</span><span class="en-only">Where I've worked</span></h2>
         <div class="timeline">
             <div class="job reveal">
-                <div class="when">Jul 2020 – <span class="zh">至今</span><span class="en-only">Present</span></div>
+                <div class="when">Jul 2020 – Apr 2026</div>
                 <h3><span class="zh">產品經理</span><span class="en-only">Product Manager</span></h3>
                 <div class="co"><span class="zh">三竹資訊 Mitake Information</span><span class="en-only">Mitake Information</span></div>
                 <ul>
@@ -263,48 +292,88 @@
     <!-- PROJECTS -->
     <div class="alt-bg" id="projects">
         <div class="inner">
-            <p class="eyebrow reveal"><span class="zh">代表專案</span><span class="en-only">Selected work</span></p>
-            <h2 class="section-title reveal"><span class="zh">代表性專案</span><span class="en-only">Featured projects</span></h2>
+            <p class="eyebrow reveal"><span class="zh">代表作品</span><span class="en-only">Selected work</span></p>
+            <h2 class="section-title reveal"><span class="zh">專案作品</span><span class="en-only">Projects</span></h2>
+
+            <h3 class="subgroup reveal"><span class="zh">個人專案 · Side Projects</span><span class="en-only">Side Projects</span></h3>
+            <div class="projects">
+                <div class="card reveal">
+                    <div class="card-head"><span class="tag"><span class="zh">產品策略</span><span class="en-only">Product strategy</span></span><span class="badge badge-concept"><span class="zh">概念探索</span><span class="en-only">Concept</span></span></div>
+                    <h3><span class="zh">萬能旅遊小幫手</span><span class="en-only">Universal Travel Helper</span></h3>
+                    <ul>
+                        <li><span class="zh">主導 AI 旅遊規劃產品的 0→1 市場研究：競品分析（Tripadvisor、Google Travel、TripIt、通用型 AI…）、市場需求文件與雙 Persona。</span><span class="en-only">Drove 0→1 market research for an AI travel-planning product — competitive analysis (Tripadvisor, Google Travel, TripIt, general-purpose AI…), an MRD, and two personas.</span></li>
+                        <li><span class="zh">定義產品 USP（深度個人化、旅途即時優化、資訊權威性、財務透明）與商業目標、風險假設地圖。</span><span class="en-only">Defined the USP (deep personalisation, in-trip optimisation, information authority, financial transparency), business goals, and a risk/assumption map.</span></li>
+                        <li><span class="zh">由此策略收斂出可執行的 MVP → 票券通卡比價王。</span><span class="en-only">Converged that strategy into an executable MVP → the comparison app.</span></li>
+                    </ul>
+                    <a class="case-link js-case" data-base="projects/travel-helper" href="projects/travel-helper.html"><span class="zh">查看完整案例 →</span><span class="en-only">Read case study →</span></a>
+                </div>
+                <div class="card reveal">
+                    <div class="card-head"><span class="tag"><span class="zh">AI 產品</span><span class="en-only">AI product</span></span><span class="badge badge-live"><span class="zh">開發中</span><span class="en-only">In development</span></span></div>
+                    <h3><span class="zh">票券通卡比價王</span><span class="en-only">Ticket &amp; Pass Comparison</span></h3>
+                    <ul>
+                        <li><span class="zh">以 CRISPE 策略評估在三個方案間，依「用戶價值 × 技術可行性 × 成本」選定比價王為 MVP。</span><span class="en-only">Ran a CRISPE strategy evaluation to pick this MVP over two alternatives on value × feasibility × cost.</span></li>
+                        <li><span class="zh">獨立完成 PRD、User Journey Map、前端元件與 API/Prompt 規格，並運用 AI 工具與 Google Gemini API（Search grounding）打造可拖曳行程規劃與即時自動比價引擎。</span><span class="en-only">Solo-authored the PRD, user journey map, and front-end / API / prompt specs — and used AI tools with the Google Gemini API (Search grounding) to build a drag-and-drop planner with a real-time price-comparison engine.</span></li>
+                        <li><span class="zh">支援繁中／英／日，並定義成功指標（任務完成率、AI 價值認同率、資料準確率 < 1%）。</span><span class="en-only">Trilingual (中/ EN / 日); defined success metrics — task completion, AI-value adoption, and a &lt;1% data-error target.</span></li>
+                    </ul>
+                    <a class="case-link js-case" data-base="projects/ticket-compare" href="projects/ticket-compare.html"><span class="zh">查看完整案例 →</span><span class="en-only">Read case study →</span></a>
+                </div>
+            </div>
+
+            <h3 class="subgroup mt reveal"><span class="zh">工作專案 · 三竹股市 App</span><span class="en-only">Work · Mitake stock app</span></h3>
             <div class="projects">
                 <div class="card reveal">
                     <span class="tag"><span class="zh">平台整合</span><span class="en-only">Platform</span></span>
                     <h3><span class="zh">會員中心</span><span class="en-only">Member Center</span></h3>
-                    <ul>
-                        <li><span class="zh">跨平台整合：考量系統架構、異地備援與資料同步，確保用戶體驗一致性。</span><span class="en-only">Cross-platform integration — accounting for architecture, disaster recovery, and data sync for a consistent experience.</span></li>
-                        <li><span class="zh">資安與個資保護：參與資安規劃，優化用戶資料存取機制。</span><span class="en-only">Contributed to security planning and improved how user data is accessed and protected.</span></li>
-                    </ul>
+                    <div class="pdr">
+                        <div class="pdr-row"><span class="pdr-k p"><span class="zh">問題</span><span class="en-only">Problem</span></span><span class="pdr-v"><span class="zh">三竹股市橫跨 iOS / Android / TV / PC 四端，會員資料分散、跨平台體驗不一致，且涉及個資與資安風險。</span><span class="en-only">The app spans iOS / Android / TV / PC; member data was fragmented, the experience inconsistent, with privacy & security risks.</span></span></div>
+                        <div class="pdr-row"><span class="pdr-k d"><span class="zh">決策</span><span class="en-only">Decision</span></span><span class="pdr-v"><span class="zh">協助訂定會員資訊與跨平台的統一架構——納入系統架構、異地備援與資料同步，並參與資安規劃、優化資料存取機制。</span><span class="en-only">Helped define a unified member-data & cross-platform architecture (system design, disaster recovery, data sync) and contributed to security planning.</span></span></div>
+                        <div class="pdr-row"><span class="pdr-k r"><span class="zh">結果</span><span class="en-only">Result</span></span><span class="pdr-v"><span class="zh">跨平台體驗一致、資料存取更安全、會員資料控管更便捷，後台統計資訊也更精準。</span><span class="en-only">A consistent cross-platform experience, more secure data access, easier member-data governance, and more accurate analytics.</span></span></div>
+                    </div>
                 </div>
                 <div class="card reveal">
                     <span class="tag"><span class="zh">功能迭代</span><span class="en-only">Iteration</span></span>
                     <h3><span class="zh">技術線圖</span><span class="en-only">Technical Charts</span></h3>
-                    <ul>
-                        <li><span class="zh">迭代與優化：主導功能開發，提升操作流暢度。</span><span class="en-only">Led iterative feature development to make interactions smoother.</span></li>
-                        <li><span class="zh">客服支援：優化 FAQ 與內部文件，縮短客服處理時間。</span><span class="en-only">Improved FAQs and internal docs, cutting support handling time.</span></li>
-                    </ul>
+                    <div class="pdr">
+                        <div class="pdr-row"><span class="pdr-k p"><span class="zh">問題</span><span class="en-only">Problem</span></span><span class="pdr-v"><span class="zh">技術線圖是 App 核心看盤功能，但操作流暢度不足、相關客服詢問量大，增加支援負擔。</span><span class="en-only">A core charting feature, but interactions weren't smooth and drove a high volume of support queries.</span></span></div>
+                        <div class="pdr-row"><span class="pdr-k d"><span class="zh">決策</span><span class="en-only">Decision</span></span><span class="pdr-v"><span class="zh">主導技術線圖功能的迭代與優化，提升操作流暢度；同步優化 FAQ 與內部客服文件。</span><span class="en-only">Led iterative improvement for smoother interactions, and revamped FAQs and internal support docs.</span></span></div>
+                        <div class="pdr-row"><span class="pdr-k r"><span class="zh">結果</span><span class="en-only">Result</span></span><span class="pdr-v"><span class="zh">操作體驗更順暢；客服詢問量下降 <span class="hl">50%</span>，每件處理時間平均縮短 <span class="hl">30 分鐘</span>。</span><span class="en-only">Smoother UX; support queries down <span class="hl">50%</span> and ~<span class="hl">30 min</span> saved per ticket on average.</span></span></div>
+                    </div>
                 </div>
                 <div class="card reveal">
                     <span class="tag"><span class="zh">商業化</span><span class="en-only">Monetisation</span></span>
                     <h3><span class="zh">即時美股付費</span><span class="en-only">Real-Time US Stocks (Paid)</span></h3>
-                    <ul>
-                        <li><span class="zh">標準化客製需求：推動公版化設計，提高系統擴展性。</span><span class="en-only">Standardised custom requests through a reusable template design to improve scalability.</span></li>
-                        <li><span class="zh">商業邏輯規劃：與後端 PM 合作，確保功能符合市場需求。</span><span class="en-only">Partnered with the back-end PM to align business logic with market demand.</span></li>
-                    </ul>
+                    <div class="pdr">
+                        <div class="pdr-row"><span class="pdr-k p"><span class="zh">問題</span><span class="en-only">Problem</span></span><span class="pdr-v"><span class="zh">即時美股報價為付費功能，但客製需求零散、系統擴展性受限，難以規模化。</span><span class="en-only">A paid real-time US-stock quote feature whose scattered custom requests limited scalability.</span></span></div>
+                        <div class="pdr-row"><span class="pdr-k d"><span class="zh">決策</span><span class="en-only">Decision</span></span><span class="pdr-v"><span class="zh">推動公版化（標準化）設計，將 3 家券商的零散客製需求收斂為可重用版型；與後端 PM 協作規劃商業邏輯，確保符合市場需求。</span><span class="en-only">Drove a templatized design that consolidated three brokerage clients' custom requests into reusable templates; partnered with the backend PM on business logic to fit market needs.</span></span></div>
+                        <div class="pdr-row"><span class="pdr-k r"><span class="zh">結果</span><span class="en-only">Result</span></span><span class="pdr-v"><span class="zh">系統更易擴展、客製維護成本降低，付費功能順利落地。</span><span class="en-only">A more scalable system, lower customization-maintenance cost, and a successful paid launch.</span></span></div>
+                    </div>
                 </div>
                 <div class="card reveal">
                     <span class="tag"><span class="zh">效能</span><span class="en-only">Performance</span></span>
                     <h3><span class="zh">新版搜尋</span><span class="en-only">New Search</span></h3>
-                    <ul>
-                        <li><span class="zh">效能提升：與技術團隊合作，優化搜尋速度與準確性。</span><span class="en-only">Worked with engineering to improve search speed and accuracy.</span></li>
-                        <li><span class="zh">負載風險評估：測試不同流量條件下的系統穩定性。</span><span class="en-only">Assessed load risk by testing stability under varying traffic conditions.</span></li>
-                    </ul>
+                    <div class="pdr">
+                        <div class="pdr-row"><span class="pdr-k p"><span class="zh">問題</span><span class="en-only">Problem</span></span><span class="pdr-v"><span class="zh">舊版搜尋速度與準確性不佳，影響使用者找到標的的效率。</span><span class="en-only">The old search was slow and imprecise, hurting how quickly users found instruments.</span></span></div>
+                        <div class="pdr-row"><span class="pdr-k d"><span class="zh">決策</span><span class="en-only">Decision</span></span><span class="pdr-v"><span class="zh">與技術團隊優化搜尋速度與準確性、新增熱門搜尋功能；並進行不同流量下的負載與穩定性測試，評估上線風險。</span><span class="en-only">Improved search speed & accuracy with engineering and added trending search; load-tested stability under varying traffic.</span></span></div>
+                        <div class="pdr-row"><span class="pdr-k r"><span class="zh">結果</span><span class="en-only">Result</span></span><span class="pdr-v"><span class="zh">搜尋更快、更準，於高流量下維持穩定，並提供使用者更進階的搜尋體驗。</span><span class="en-only">Faster, more accurate search that stays stable under heavy load, with a more advanced search experience.</span></span></div>
+                    </div>
                 </div>
                 <div class="card reveal">
                     <span class="tag"><span class="zh">法規</span><span class="en-only">Compliance</span></span>
                     <h3><span class="zh">期貨交易所新制</span><span class="en-only">Futures Exchange Regulation</span></h3>
-                    <ul>
-                        <li><span class="zh">跨部門合作：與多個利害關係部門溝通，掌控多平台時程與進度追蹤。</span><span class="en-only">Coordinated multiple stakeholder teams, owning multi-platform timelines and progress tracking.</span></li>
-                        <li><span class="zh">法規制度理解：深入理解專業制度與既有產品功能。</span><span class="en-only">Built deep understanding of the new regulation and existing product capabilities.</span></li>
-                    </ul>
+                    <div class="pdr">
+                        <div class="pdr-row"><span class="pdr-k p"><span class="zh">問題</span><span class="en-only">Problem</span></span><span class="pdr-v"><span class="zh">期交所推出新制度，產品須在期限內跨多平台完成合規調整，涉及多個利害關係部門與既有功能。</span><span class="en-only">A new exchange regulation required compliant changes across multiple platforms within a deadline, spanning several teams.</span></span></div>
+                        <div class="pdr-row"><span class="pdr-k d"><span class="zh">決策</span><span class="en-only">Decision</span></span><span class="pdr-v"><span class="zh">在無正式職權下協調跨 ~10 個單位、約 16 人（業務、RD、設計）為期半年的專案，掌控多平台時程與進度；並與期交所、資料源廠商等外部單位前期溝通，深入理解法規與既有功能。</span><span class="en-only">Without formal authority, coordinated a 6-month project across ~10 units (~16 people in business, RD & design); owned multi-platform timelines and ran early comms with external parties (the futures exchange, data vendors) to master the regulation and existing features.</span></span></div>
+                        <div class="pdr-row"><span class="pdr-k r"><span class="zh">結果</span><span class="en-only">Result</span></span><span class="pdr-v"><span class="zh">各平台如期完成合規上線，符合新制要求。</span><span class="en-only">All platforms shipped compliant on schedule, meeting the new requirements.</span></span></div>
+                    </div>
+                </div>
+                <div class="card reveal">
+                    <span class="tag"><span class="zh">新功能</span><span class="en-only">New feature</span></span>
+                    <h3><span class="zh">美股盤後資訊與評級</span><span class="en-only">After-Hours US-Stock Data &amp; Ratings</span></h3>
+                    <div class="pdr">
+                        <div class="pdr-row"><span class="pdr-k p"><span class="zh">問題</span><span class="en-only">Problem</span></span><span class="pdr-v"><span class="zh">因應美股投資日益普及，使用者需要更多美股商品資訊（基本資訊、分析師評級）作為投資參考。</span><span class="en-only">As US-stock investing went mainstream, users needed richer US-stock information (fundamentals, analyst ratings) to inform decisions.</span></span></div>
+                        <div class="pdr-row"><span class="pdr-k d"><span class="zh">決策</span><span class="en-only">Decision</span></span><span class="pdr-v"><span class="zh">評估合適的資料源並溝通對接，與工程師合作串接，新增美股盤後相關資料（基本資訊、分析師評級）。</span><span class="en-only">Evaluated and onboarded suitable data sources and partnered with engineers to integrate after-hours data (fundamentals, analyst ratings).</span></span></div>
+                        <div class="pdr-row"><span class="pdr-k r"><span class="zh">結果</span><span class="en-only">Result</span></span><span class="pdr-v"><span class="zh">美股基本資訊更多元，吸引多家券商採用、帶動買單。</span><span class="en-only">More comprehensive US-stock information that drove adoption and order flow across multiple brokerage clients.</span></span></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -320,10 +389,25 @@
                 <div class="chips">
                     <span class="chip"><span class="zh">需求分析</span><span class="en-only">Requirement analysis</span></span>
                     <span class="chip"><span class="zh">用戶研究</span><span class="en-only">User research</span></span>
-                    <span class="chip"><span class="zh">產品規劃</span><span class="en-only">Product planning</span></span>
-                    <span class="chip"><span class="zh">時程規劃</span><span class="en-only">Roadmapping</span></span>
-                    <span class="chip"><span class="zh">溝通管理</span><span class="en-only">Stakeholder comms</span></span>
+                    <span class="chip"><span class="zh">競品分析</span><span class="en-only">Competitive analysis</span></span>
+                    <span class="chip"><span class="zh">產品 / 路線圖規劃</span><span class="en-only">Product & roadmap planning</span></span>
+                    <span class="chip"><span class="zh">優先級排序</span><span class="en-only">Prioritisation</span></span>
+                    <span class="chip"><span class="zh">PRD / 規格撰寫</span><span class="en-only">PRD / spec writing</span></span>
+                    <span class="chip"><span class="zh">跨部門協作</span><span class="en-only">Cross-functional collaboration</span></span>
                     <span class="chip"><span class="zh">數據分析</span><span class="en-only">Data analysis</span></span>
+                </div>
+            </div>
+            <div class="skill-group reveal">
+                <h3><span class="zh">AI 與技術</span><span class="en-only">AI & Technical</span></h3>
+                <div class="chips">
+                    <span class="chip"><span class="zh">Prompt 設計</span><span class="en-only">Prompt design</span></span>
+                    <span class="chip"><span class="zh">LLM / AI 應用</span><span class="en-only">LLM / AI applications</span></span>
+                    <span class="chip">Google Gemini API</span>
+                    <span class="chip"><span class="zh">AI 產品開發</span><span class="en-only">AI product development</span></span>
+                    <span class="chip"><span class="zh">AI 輔助原型開發</span><span class="en-only">AI-assisted prototyping</span></span>
+                    <span class="chip">JavaScript</span>
+                    <span class="chip">HTML / CSS</span>
+                    <span class="chip">SQL</span>
                 </div>
             </div>
             <div class="skill-group reveal">
@@ -337,15 +421,6 @@
                     <span class="chip">Redmine</span>
                     <span class="chip">Google Analytics</span>
                     <span class="chip">Firebase</span>
-                </div>
-            </div>
-            <div class="skill-group reveal">
-                <h3><span class="zh">技術能力</span><span class="en-only">Technical</span></h3>
-                <div class="chips">
-                    <span class="chip">JavaScript</span>
-                    <span class="chip">HTML</span>
-                    <span class="chip">CSS</span>
-                    <span class="chip">SQL</span>
                 </div>
             </div>
             <div class="skill-group reveal">
@@ -385,13 +460,14 @@
         <p class="reveal"><span class="zh">正在尋找產品經理 / 專案經理的機會。歡迎來信，期待與你交流。</span><span class="en-only">Open to product / project management opportunities. Feel free to reach out — I'd love to connect.</span></p>
         <div class="hero-actions reveal" style="justify-content:center;">
             <a href="mailto:sandy246836@hotmail.com" class="btn btn-primary">✉ sandy246836@hotmail.com</a>
+            <a href="assets/Camilla-Wu-CV.pdf" download="吳思竺 Wu Szu-Chu 履歷.pdf" class="btn btn-ghost js-cv"><span class="zh">下載履歷 PDF</span><span class="en-only">Download CV</span></a>
             <a href="https://github.com/CamillaWu" target="_blank" rel="noopener" class="btn btn-ghost">GitHub ↗</a>
         </div>
     </section>
 
     <footer>
         <div class="footer-inner">
-            <span>© <span id="year"></span> 吳思竺 Camilla Wu</span>
+            <span>© <span id="year"></span> 吳思竺 Wu Szu-Chu</span>
             <span><span class="zh">以使用者為核心打造產品</span><span class="en-only">Built with care.</span></span>
         </div>
     </footer>
@@ -412,6 +488,13 @@
             const html = document.documentElement;
             if (en) { html.setAttribute('data-en', ''); html.setAttribute('lang', 'en'); langToggle.textContent = '中'; }
             else { html.removeAttribute('data-en'); html.setAttribute('lang', 'zh-Hant'); langToggle.textContent = 'EN'; }
+            document.querySelectorAll('.js-cv').forEach(a => {
+                a.setAttribute('href', en ? 'assets/Camilla-Wu-CV-EN.pdf' : 'assets/Camilla-Wu-CV.pdf');
+                a.setAttribute('download', en ? 'Wu Szu-Chu - CV.pdf' : '吳思竺 Wu Szu-Chu 履歷.pdf');
+            });
+            document.querySelectorAll('.js-case').forEach(a => {
+                a.setAttribute('href', a.getAttribute('data-base') + (en ? '-en.html' : '.html'));
+            });
             try { localStorage.setItem('lang', en ? 'en' : 'zh'); } catch (e) {}
         }
         langToggle.addEventListener('click', () => setLang(!document.documentElement.hasAttribute('data-en')));
